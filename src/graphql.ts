@@ -8,7 +8,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export interface AddCategoryArgs {
+export interface categoryArgs {
     title: string;
 }
 
@@ -33,8 +33,8 @@ export interface IQuery {
 
 export interface IMutation {
     deleteCategoryById(categotyId: string): boolean | Promise<boolean>;
-    addCategory(categoryArgs: addCategoryArgs): boolean | Promise<boolean>;
-    addTodo(categoryArgs: addCategoryArgs): boolean | Promise<boolean>;
+    addCategory(categoryArgs: categoryArgs): boolean | Promise<boolean>;
+    addTodo(categoryArgs: categoryArgs): boolean | Promise<boolean>;
 }
 
 type Nullable<T> = T | null;
