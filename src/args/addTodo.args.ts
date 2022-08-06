@@ -2,10 +2,10 @@ import { Field, InputType } from "@nestjs/graphql";
 import { Todos } from "src/models/todos.model";
 
 @InputType()
-export class addCategoryArgs {
+export class addTodoArgs {
     @Field()
-    title: string
+    categoriesId: string
 
-    // @Field(type => Todos)
-    // todos: Todos
+    @Field(type => Todos)
+    todos: Todos
 }   

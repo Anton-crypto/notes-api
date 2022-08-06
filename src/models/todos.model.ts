@@ -13,8 +13,9 @@ export class Todos {
     @Field()
     text: string
 
-    // @Column({ type: 'boolean', default: false })
-    // isCompleted: boolean
+    @Column({ type: 'boolean', default: false })
+    @Field()
+    isCompleted: boolean
 
     @ManyToOne(() => Categories, (categories) => categories.todos)
     @Field(type => Categories)

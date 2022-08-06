@@ -14,6 +14,6 @@ export class Categories {
     title: string
 
     @OneToMany(() => Todos, (todos) => todos.categories)
-    @Field(type => [Todos])
+    @Field(type => [Todos], { nullable: 'items' })
     todos: Todos[]
 }

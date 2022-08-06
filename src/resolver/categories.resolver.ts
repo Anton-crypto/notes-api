@@ -14,20 +14,24 @@ export class CategoriesResolver {
     return this.categoriesService.findAllCategories();
   }
 
-  // @Query(returns => Categories)
-  // getCategoryById( 
-  //   @Args({name: "categotyId"}) id: string
-  // ) {
-  //   return this.categoriesService.findCategoriesById(id);
-  // }
+  @Query(returns => Categories)
+  getCategoryById( 
+    @Args({name: "categotyId"}) id: string
+  ) {
+    return this.categoriesService.findCategoriesById(id);
+  }
 
-  // @Mutation(returns => Boolean)
-  // deleteCategoryById(@Args({name: "categotyId"}) id: string) {
-  //   return this.categoriesService.deleteCategories(id);
-  // }
+  @Mutation(returns => Boolean)
+  deleteCategoryById(@Args({name: "categotyId"}) id: string) {
+    return this.categoriesService.deleteCategories(id);
+  }
   
-  // @Mutation(returns => Boolean)
-  // addCategory(@Args({name: "addCategoryArgs"}) addCategoryArgs: addCategoryArgs) {
-  //   return this.categoriesService.addCategories(addCategoryArgs);
-  // }
+  @Mutation(returns => Boolean)
+  addCategory(@Args({name: "categoryArgs"}) categoryArgs: addCategoryArgs) {
+    return this.categoriesService.addCategories(categoryArgs);
+  }
+  @Mutation(returns => Boolean)
+  addTodo(@Args({name: "categoryArgs"}) categoryArgs: addCategoryArgs) {
+    return this.categoriesService.addCategories(categoryArgs);
+  }
 }

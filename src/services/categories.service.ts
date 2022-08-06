@@ -12,7 +12,12 @@ export class CategoriesService {
   ) {}
 
   findAllCategories(): Promise<Categories[]> {
-    return this.categoriesRepository.find();
+    return this.categoriesRepository.find({
+        relations: {
+          todos: true,
+        },
+      }
+    );
   }
   findCategoriesById(id: string): Promise<Categories> {
     return this.categoriesRepository.findOne({
@@ -25,6 +30,7 @@ export class CategoriesService {
 
     let category : Categories = new Categories();
     category.title = categoryArgs.title;
+    
 
     await this.categoriesRepository.save(category);
     return true;

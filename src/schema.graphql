@@ -5,16 +5,28 @@
 type Todos {
   id: Float!
   text: String!
+  isCompleted: Boolean!
   categories: Categories!
 }
 
 type Categories {
   id: String!
   title: String!
-  todos: [Todos!]!
+  todos: [Todos]!
 }
 
 type Query {
   index: String!
   getCategories: [Categories!]!
+  getCategoryById(categotyId: String!): Categories!
+}
+
+type Mutation {
+  deleteCategoryById(categotyId: String!): Boolean!
+  addCategory(categoryArgs: addCategoryArgs!): Boolean!
+  addTodo(categoryArgs: addCategoryArgs!): Boolean!
+}
+
+input addCategoryArgs {
+  title: String!
 }
