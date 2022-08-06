@@ -1,0 +1,20 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Todos {
+  id: Float!
+  text: String!
+  categories: Categories!
+}
+
+type Categories {
+  id: String!
+  title: String!
+  todos: [Todos!]!
+}
+
+type Query {
+  index: String!
+  getCategories: [Categories!]!
+}
