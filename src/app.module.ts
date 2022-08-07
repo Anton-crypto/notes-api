@@ -20,6 +20,7 @@ import { AppResolver } from './app.resolver';
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
+      url: process.env.DATABASE_URL,
       host: process.env.POSTGRES_HOST,
       port: Number(process.env.POSTGRES_PORT),
       username: process.env.POSTGRES_USER,
@@ -29,7 +30,8 @@ import { AppResolver } from './app.resolver';
       synchronize: true,
       autoLoadEntities: false,
       logging: false,
-      ssl:false,
+      // ssl:false,
+      ssl: { rejectUnauthorized: false },
       subscribers: [],
       migrations: [],
     }),
