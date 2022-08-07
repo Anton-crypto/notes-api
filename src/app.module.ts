@@ -28,12 +28,11 @@ import { AppResolver } from './app.resolver';
       // database: process.env.POSTGRES_DB,
       entities: [Todos, Categories],
       synchronize: true,
-      autoLoadEntities: false,
-      logging: false, 
-      ssl:false,
-      //ssl: { rejectUnauthorized: false },
-      subscribers: [],
-      migrations: [],
+      extra : {
+        ssl: {
+          rejectUnauthorized: false
+        }
+      },
     }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
