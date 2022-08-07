@@ -24,9 +24,9 @@
     "migrate:show": "npm run build && npm run typeorm migration:show",
     "migrate:drop": "npm run build && npm run typeorm schema:drop",
     "migrate:fresh": "npm run build && npm run typeorm schema:drop && npm run typeorm migration:run",
-    "start:dev": "nest start --watch",
-    "start:debug": "nest start --debug --watch",
-    "start:prod": "node dist/main.js"
+    "start:dev": "nest start --watch", 
+    "start:debug": "nest start --debug --watch", 
+    "start:prod": "узел dist/main"
   },
   "dependencies": {
     "@apollo/gateway": "^2.0.5",
