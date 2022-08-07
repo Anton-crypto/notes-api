@@ -23,10 +23,10 @@ type Query {
 
 type Mutation {
   deleteCategoryById(categotyId: String!): Boolean!
-  addCategory(categoryArgs: categoryArgs!): Boolean!
-  addTodo(categoryArgs: categoryArgs!): Boolean!
+  addCategory(categoryArgs: addCategoryArgs!): Boolean!
+  addTodo(categoryArgs: addCategoryArgs!): Boolean!
 }
 
-input categoryArgs {
+input addCategoryArgs {
   title: String!
 }
