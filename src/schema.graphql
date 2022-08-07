@@ -27,6 +27,6 @@ type Mutation {
   addTodo(categoryArgs: categoryArgs!): Boolean!
 }
 
-input categoryArgs {
+input addCategoryArgs {
   title: String!
 }
