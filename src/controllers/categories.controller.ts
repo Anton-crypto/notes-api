@@ -1,4 +1,4 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 import { Categories } from 'src/models/categories.model';
 import { CategoriesService } from '../services/categories.service';
 

@@ -2,13 +2,18 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Categories } from 'src/models/categories.model';
-import { addCategoryArgs } from 'src/args/addCategory.args';
+import { TodoArgs } from 'src/args/todoArgs.args';
+import { Todos } from 'src/models/todos.model';
+import { v4 as uuid } from 'uuid';
+import { CategoryArgs } from 'src/args/categoryArgs.args';
 
 @Injectable()
 export class CategoriesService {
   constructor(
     @InjectRepository(Categories)
     private categoriesRepository: Repository<Categories>,
+    @InjectRepository(Todos)
+    private todosRepository: Repository<Todos>,
   ) {}
 
   findAllCategories(): Promise<Categories[]> {
@@ -19,28 +24,35 @@ export class CategoriesService {
       }
     );
   }
-  findCategoriesById(id: string): Promise<Categories> {
-    return this.categoriesRepository.findOne({
-      where: {
-        id,
-      },
+  async createCategories(categoryArgs: CategoryArgs): Promise<Categories | Error> {
+    const newCategory: Categories = this.categoriesRepository.create({
+      id: uuid(),
+      title: categoryArgs.categoryName,
+    })
+
+    await this.categoriesRepository.save(newCategory);
+
+    const newTodos: Todos = this.todosRepository.create({
+      id: uuid(),
+      text: categoryArgs.text,
+      isCompleted: false,
     });
-  }
-  async addCategories(categoryArgs: addCategoryArgs): Promise<Boolean> {
 
-    let category : Categories = new Categories();
-    category.title = categoryArgs.title;
-    
+    newTodos.category = newCategory
 
-    await this.categoriesRepository.save(category);
-    return true;
+    await this.todosRepository.save(newTodos);
+
+    return newCategory
   }
-  async deleteCategories(id: string): Promise<Boolean> {
-    try {
-      await this.categoriesRepository.delete(id);
-      return true;
-    } catch {
-      return false;
-    }
+  async createTodo(todoArgs: TodoArgs): Promise<Todos> {
+    const newTodos: Todos = this.todosRepository.create({
+      id: uuid(),
+      text: todoArgs.text,
+      isCompleted: false,
+      categoryId: todoArgs.categoryId
+    });
+    console.warn((todoArgs))
+    this.todosRepository.save(newTodos);
+    return newTodos;
   }
 }

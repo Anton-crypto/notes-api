@@ -2,7 +2,9 @@ import { Args, Query, Mutation, Resolver, Subscription, Int } from "@nestjs/grap
 import { Categories } from "src/models/categories.model";
 import { CategoriesService } from "src/services/categories.service";
 
-import { addCategoryArgs } from "src/args/addCategory.args";
+import { TodoArgs } from "src/args/todoArgs.args";
+import { CategoryArgs } from "src/args/categoryArgs.args";
+import { Todos } from "src/models/todos.model";
 
 @Resolver()
 export class CategoriesResolver {
@@ -14,24 +16,13 @@ export class CategoriesResolver {
     return this.categoriesService.findAllCategories();
   }
 
-  @Query(returns => Categories)
-  getCategoryById( 
-    @Args({name: "categotyId"}) id: string
-  ) {
-    return this.categoriesService.findCategoriesById(id);
+  @Mutation(returns => Todos)
+  addTodo(@Args({name: "categoryArgs"}) todoArgs: TodoArgs) {
+    return this.categoriesService.createTodo(todoArgs);
   }
 
-  @Mutation(returns => Boolean)
-  deleteCategoryById(@Args({name: "categotyId"}) id: string) {
-    return this.categoriesService.deleteCategories(id);
-  }
-  
-  @Mutation(returns => Boolean)
-  addCategory(@Args({name: "categoryArgs"}) categoryArgs: addCategoryArgs) {
-    return this.categoriesService.addCategories(categoryArgs);
-  }
-  @Mutation(returns => Boolean)
-  addTodo(@Args({name: "categoryArgs"}) categoryArgs: addCategoryArgs) {
-    return this.categoriesService.addCategories(categoryArgs);
+  @Mutation(returns => Categories)
+  addCategory(@Args({name: "categoryArgs"}) categoryArgs: CategoryArgs) {
+    return this.categoriesService.createCategories(categoryArgs);
   }
 }

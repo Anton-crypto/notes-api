@@ -41,6 +41,8 @@ import { AppResolver } from './app.resolver';
         path: join(process.cwd(), 'src/graphql.ts')
       },
       playground: true,
+      sortSchema: true,
+      
     }),
     CategoriesModule,
   ],

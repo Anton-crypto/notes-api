@@ -2,31 +2,36 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Todos {
-  id: Float!
-  text: String!
-  isCompleted: Boolean!
-  categories: Categories!
-}
-
 type Categories {
-  id: String!
+  id: ID!
   title: String!
   todos: [Todos]!
 }
 
-type Query {
-  index: String!
-  getCategories: [Categories!]!
-  getCategoryById(categotyId: String!): Categories!
+input CategoryArgs {
+  categoryName: String!
+  text: String!
 }
 
 type Mutation {
-  deleteCategoryById(categotyId: String!): Boolean!
-  addCategory(categoryArgs: categoryArgs!): Boolean!
-  addTodo(categoryArgs: categoryArgs!): Boolean!
+  addCategory(categoryArgs: CategoryArgs!): Categories!
+  addTodo(categoryArgs: TodoArgs!): Todos!
 }
 
-input addCategoryArgs {
-  title: String!
+type Query {
+  getCategories: [Categories!]!
+  index: String!
+}
+
+input TodoArgs {
+  categoryId: String!
+  text: String!
+}
+
+type Todos {
+  category: Categories!
+  categoryId: ID!
+  id: ID!
+  isCompleted: Boolean!
+  text: String!
 }

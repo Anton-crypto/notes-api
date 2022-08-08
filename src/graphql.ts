@@ -8,15 +8,14 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export interface categoryArgs {
-    title: string;
+export interface CategoryArgs {
+    categoryName: string;
+    text: string;
 }
 
-export interface Todos {
-    id: number;
+export interface TodoArgs {
+    categoryId: string;
     text: string;
-    isCompleted: boolean;
-    categories: Categories;
 }
 
 export interface Categories {
@@ -25,16 +24,22 @@ export interface Categories {
     todos: Nullable<Todos>[];
 }
 
-export interface IQuery {
-    index(): string | Promise<string>;
-    getCategories(): Categories[] | Promise<Categories[]>;
-    getCategoryById(categotyId: string): Categories | Promise<Categories>;
+export interface IMutation {
+    addCategory(categoryArgs: CategoryArgs): Categories | Promise<Categories>;
+    addTodo(categoryArgs: TodoArgs): Todos | Promise<Todos>;
 }
 
-export interface IMutation {
-    deleteCategoryById(categotyId: string): boolean | Promise<boolean>;
-    addCategory(categoryArgs: categoryArgs): boolean | Promise<boolean>;
-    addTodo(categoryArgs: categoryArgs): boolean | Promise<boolean>;
+export interface IQuery {
+    getCategories(): Categories[] | Promise<Categories[]>;
+    index(): string | Promise<string>;
+}
+
+export interface Todos {
+    category: Categories;
+    categoryId: string;
+    id: string;
+    isCompleted: boolean;
+    text: string;
 }
 
 type Nullable<T> = T | null;
