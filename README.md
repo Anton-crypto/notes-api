@@ -22,9 +22,19 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
+
+![](images/banner.png)
+
+<p align="center">
+  <a href="https://github.com/sindresorhus/awesome">
+    <img src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg" />
+  </a>
+</p>
+
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Данный проект размещен на платформе heroku.
 
 ## Installation
 
