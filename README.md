@@ -19,17 +19,7 @@
     <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
   <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
 </p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-
-![](images/banner.png)
-
-<p align="center">
-  <a href="https://github.com/sindresorhus/awesome">
-    <img src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg" />
-  </a>
-</p>
 <h1 align="center">Hi there, I'm <a href="https://daniilshat.ru/" target="_blank">Anton</a> 
 <img src="https://github.com/blackcater/blackcater/raw/main/images/Hi.gif" height="32"/></h1>
 ## Description
@@ -37,7 +27,7 @@
 # Angular NestJS PostgreSQL GraphQL Typeorm Docker
 
 Простое backend приложение на базе NestJS, где в качестве базы данных выступает PostgreSQL, для управления базой
-используется TypeORM, в качестве языка запроса у backend используется GraphQL. Все это упаковано в docker-compose
+используется TypeORM, в качестве языка запроса у backend используется GraphQL. Все это расещенно на бесплатном фостинги Koru.
 
 <table width="100%">
   <tr>
@@ -78,33 +68,10 @@
     </td>
     <td align="center" valign="middle" width="17%">
       <a href="https://www.docker.com/">
-      <img height="50" alt="Docker" src="https://d1.awsstatic.com/acs/characters/Logos/Docker-Logo_Horizontel_279x131.b8a5c41e56b77706656d61080f6a0217a3ba356d.png"/>
+      <img height="50" alt="Heroku" src="[https://d1.awsstatic.com/acs/characters/Logos/Docker-Logo_Horizontel_279x131.b8a5c41e56b77706656d61080f6a0217a3ba356d.png](https://uploads.sitepoint.com/wp-content/uploads/2016/04/1461122387heroku-logo.jpg)"/>
       </a>
       <br />
-      Docker
+      Heroku
     </td>
   </tr>
 </table>
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-Данный проект размещен на платформе heroku.
-
-## Installation
-
-```bash
-$ npm install
-```
-
-## Running the app
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
