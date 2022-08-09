@@ -30,7 +30,8 @@
     <img src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg" />
   </a>
 </p>
-
+<h1 align="center">Hi there, I'm <a href="https://daniilshat.ru/" target="_blank">Anton</a> 
+<img src="https://github.com/blackcater/blackcater/raw/main/images/Hi.gif" height="32"/></h1>
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
