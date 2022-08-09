@@ -15,7 +15,8 @@ input CategoryArgs {
 
 type Mutation {
   addCategory(categoryArgs: CategoryArgs!): Categories!
-  addTodo(categoryArgs: TodoArgs!): Todos!
+  addTodo(todoArgs: TodoArgs!): Todos!
+  updateTodo(updateTodoArgs: UpdateTodoArgs!): Todos!
 }
 
 type Query {
@@ -34,4 +35,9 @@ type Todos {
   id: ID!
   isCompleted: Boolean!
   text: String!
+}
+
+input UpdateTodoArgs {
+  idTodo: String!
+  isCompleted: Boolean!
 }

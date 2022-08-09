@@ -6,6 +6,7 @@ import { TodoArgs } from 'src/args/todoArgs.args';
 import { Todos } from 'src/models/todos.model';
 import { v4 as uuid } from 'uuid';
 import { CategoryArgs } from 'src/args/categoryArgs.args';
+import { UpdateTodoArgs } from 'src/args/updateTodoArgs.args';
 
 @Injectable()
 export class CategoriesService {
@@ -17,20 +18,23 @@ export class CategoriesService {
   ) {}
 
   findAllCategories(): Promise<Categories[]> {
-    return this.categoriesRepository.find({
+
+    let result = this. categoriesRepository.find({
         relations: {
           todos: true,
         },
       }
     );
+    console.log(result)
+    return result;
   }
-  async createCategories(categoryArgs: CategoryArgs): Promise<Categories | Error> {
+  async createCategories(categoryArgs: CategoryArgs): Promise<Categories> {
     const newCategory: Categories = this.categoriesRepository.create({
       id: uuid(),
       title: categoryArgs.categoryName,
     })
 
-    await this.categoriesRepository.save(newCategory);
+    let result = await this.categoriesRepository.save(newCategory);
 
     const newTodos: Todos = this.todosRepository.create({
       id: uuid(),
@@ -42,7 +46,7 @@ export class CategoriesService {
 
     await this.todosRepository.save(newTodos);
 
-    return newCategory
+    return result
   }
   async createTodo(todoArgs: TodoArgs): Promise<Todos> {
     const newTodos: Todos = this.todosRepository.create({
@@ -51,8 +55,19 @@ export class CategoriesService {
       isCompleted: false,
       categoryId: todoArgs.categoryId
     });
-    console.warn((todoArgs))
-    this.todosRepository.save(newTodos);
-    return newTodos;
+
+    return await this.todosRepository.save(newTodos);
+  }
+  async updateTodo(updateTodoArgs: UpdateTodoArgs): Promise<Todos> {
+
+    const todosUpdate = await this.todosRepository.findOneBy({
+      id: updateTodoArgs.idTodo
+    })
+
+    if(todosUpdate) {
+      todosUpdate.isCompleted = updateTodoArgs.isCompleted
+
+      return await this.todosRepository.save(todosUpdate);
+    }
   }
 }

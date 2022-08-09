@@ -18,6 +18,11 @@ export interface TodoArgs {
     text: string;
 }
 
+export interface UpdateTodoArgs {
+    idTodo: string;
+    isCompleted: boolean;
+}
+
 export interface Categories {
     id: string;
     title: string;
@@ -26,7 +31,8 @@ export interface Categories {
 
 export interface IMutation {
     addCategory(categoryArgs: CategoryArgs): Categories | Promise<Categories>;
-    addTodo(categoryArgs: TodoArgs): Todos | Promise<Todos>;
+    addTodo(todoArgs: TodoArgs): Todos | Promise<Todos>;
+    updateTodo(updateTodoArgs: UpdateTodoArgs): Todos | Promise<Todos>;
 }
 
 export interface IQuery {
