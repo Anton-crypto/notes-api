@@ -68,7 +68,7 @@
     </td>
     <td align="center" valign="middle" width="17%">
       <a href="https://www.docker.com/">
-      <img height="50" alt="Heroku" src="[https://d1.awsstatic.com/acs/characters/Logos/Docker-Logo_Horizontel_279x131.b8a5c41e56b77706656d61080f6a0217a3ba356d.png](https://uploads.sitepoint.com/wp-content/uploads/2016/04/1461122387heroku-logo.jpg)"/>
+      <img height="50" alt="Heroku" src="https://uploads.sitepoint.com/wp-content/uploads/2016/04/1461122387heroku-logo.jpg"/>
       </a>
       <br />
       Heroku
