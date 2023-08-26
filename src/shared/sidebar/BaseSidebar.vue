@@ -1,3 +1,3 @@
 <template>
-  fdfdfd
+  sidebar
 </template>
